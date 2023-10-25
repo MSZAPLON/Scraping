@@ -1,4 +1,4 @@
-name: SNAPSHOT & BATTLE
+name: MetisAAVE
 on:
   workflow_dispatch:
   schedule:
