@@ -21,7 +21,7 @@ jobs:
       - name: Install software
         run: sudo apt install -y chromium-browser
       - name: Install all necessary packages
-        run: pip install bs4 selenium
+        run: pip install bs4 selenium webdriver_manager
       - name: Run the scraping script
         run: python scripts/MetisAAVE.py
       - name: Commit and push if content changed
