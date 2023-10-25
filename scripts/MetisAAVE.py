@@ -6,7 +6,9 @@ from datetime import datetime
 url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000&marketName=proto_metis_v3"
 
 # create a new Chrome browser instance
-driver = webdriver.Chrome('/path/to/your/chromedriver')
+options = webdriver.ChromeOptions()
+options.binary_location = '/path/to/your/chromedriver'
+driver = webdriver.Chrome(chrome_options=options)
 
 # navigate to the url
 driver.get(url)
