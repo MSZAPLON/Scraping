@@ -1,16 +1,2 @@
-time,coll,supplied,totalsupply,apysupply,borrowed,borrowcap,apyborrow
-26/10/2023 11:44:38,Asset cannot be used as collateral.,226.58K,360.00K,0.03%,11,636.37,16,000.00,0.80%
-26/10/2023 20:47:07,Asset cannot be used as collateral.,223.80K,360.00K,0.04%,11,636.47,16,000.00,0.81%
-26/10/2023 20:56:23,Asset cannot be used as collateral.,223.80K,360.00K,0.04%,11,636.47,16,000.00,0.81%
-26/10/2023 21:12:02,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.47,16,000.00,0.81%
-26/10/2023 21:26:12,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.48,16,000.00,0.81%
-26/10/2023 21:37:08,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.48,16,000.00,0.81%
-26/10/2023 21:46:58,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.48,16,000.00,0.81%
-26/10/2023 21:56:41,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.48,16,000.00,0.81%
-26/10/2023 22:12:20,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.48,16,000.00,0.81%
-26/10/2023 22:29:14,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.49,16,000.00,0.81%
-26/10/2023 22:39:17,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.49,16,000.00,0.81%
-26/10/2023 22:49:01,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.49,16,000.00,0.81%
-26/10/2023 22:58:16,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.49,16,000.00,0.81%
-26/10/2023 23:15:34,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.50,16,000.00,0.81%
-26/10/2023 23:26:04,Asset cannot be used as collateral.,223.81K,360.00K,0.04%,11,636.50,16,000.00,0.81%
+time,coll,supplied,totalsupply,apysupply,borrowed,borrowcap,apyborrow,price
+26/10/2023 11:44:38,Asset cannot be used as collateral.,226.58K,360.00K,0.03%,11636.37,16000.00,0.80%
