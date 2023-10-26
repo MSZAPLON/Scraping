@@ -24,6 +24,9 @@ driver.get(url)
 # get the page source
 html = driver.page_source
 
+# take screenshot
+driver.save_screenshot('screenshot.png')
+
 # parse the page source into BeautifulSoup
 soup = BeautifulSoup(html, 'html.parser')
 
