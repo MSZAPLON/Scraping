@@ -94,8 +94,23 @@ now = datetime.now()
 # dd/mm/YY H:M:S
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
-with open("data/MetisAAVE.csv", "a") as text_file:
-    text_file.write(dt_string + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + '\n')
+#with open("data/MetisAAVE.csv", "a") as text_file:
+#    text_file.write(dt_string + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + '\n')
+
+#compare the values with the last input
+import csv
+
+with open('data/MetisAAVE.csv', 'r') as f:
+    reader = csv.reader(f)
+    header = next(reader)  # skip header
+    last_row = None
+    for row in reader:
+        last_row = row
+    if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow)]:
+        with open("data/MetisAAVE.csv", "a") as text_file:
+            text_file.write(str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + '\n')
+    else:
+        print('The last row matches the variables in your code.')
 
 if coll == None:
     if supplied == None:
