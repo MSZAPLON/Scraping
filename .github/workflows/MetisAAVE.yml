@@ -15,11 +15,10 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Setup ChromeDriver Environment Variables
-        uses: nanasess/setup-chromedriver@v1.0.1
-
       - name: Install all necessary packages
-        run: pip install bs4 selenium
+        run: |
+          sudo apt-get install -y chromium-browser chromium-chromedriver python3-selenium
+          pip install bs4 selenium webdriver_manager
 
       - name: Run the scraping script
         run: python scripts/MetisAAVE.py
