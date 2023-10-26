@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
-
+import requests
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -15,6 +15,13 @@ from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+def sendTelegramNotification(text):
+   token = "6819722568:AAGf2Jl3QOYXKenllB53jo7IDDIfg9YPvnA"
+   chat_id = "1719555198"
+   url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
+   results = requests.get(url_req)
+   print(results.json())
 
 # specify the url
 url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000&marketName=proto_metis_v3"
@@ -86,3 +93,10 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 with open("data/MetisAAVE.csv", "a") as text_file:
     text_file.write(dt_string + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + '\n')
+
+if coll == None:
+    if supplied == None:
+        sendTelegramNotification("service is down")
+    else:
+        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
+sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
