@@ -43,8 +43,6 @@ driver.get(url)
 # get the page source
 html = driver.page_source
 
-# take screenshot
-driver.save_screenshot('screenshot.png')
 
 # get the elements
 try:
@@ -54,6 +52,9 @@ try:
     supplied = element.text
 except Exception:
     supplied = None
+   
+# take screenshot
+driver.save_screenshot('screenshot.png')
 
 try:
     totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text
