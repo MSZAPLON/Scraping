@@ -57,6 +57,11 @@ except Exception:
 driver.save_screenshot('screenshot.png')
 
 try:
+    price = driver.find_element(By.CSS_SELECTOR, ".MuiTypography-main21").text.replace('\n', '')
+except Exception:
+    price = None
+   
+try:
     totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text
 except Exception:
     totalsupply = None
@@ -107,9 +112,9 @@ with open('data/MetisAAVE.csv', 'r') as f:
     last_row = None
     for row in reader:
         last_row = row
-    if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow)]:
+    if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
         with open("data/MetisAAVE.csv", "a") as text_file:
-            text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + '\n')
+            text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
     else:
         print('The last row matches the variables in your code.')
 
