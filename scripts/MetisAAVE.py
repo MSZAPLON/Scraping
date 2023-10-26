@@ -1,12 +1,22 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 from datetime import datetime
+import os
 
 # specify the url
 url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000&marketName=proto_metis_v3"
 
 # create a new Chrome browser instance
-driver = webdriver.Chrome()
+webdriver_service = Service(os.path.join(os.environ.get('CHROMEWEBDRIVER', '/usr/local/bin'), 'chromedriver'))
+options = Options()
+options.binary_location = os.path.join(os.environ.get('GOOGLE_CHROME_BIN', '/usr/bin'), 'google-chrome-stable')
+driver = webdriver.Chrome(service=webdriver_service, options=options)
 
 # navigate to the url
 driver.get(url)

@@ -9,16 +9,21 @@ jobs:
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
-      - name: Set up Python
+
+      - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      - name: Install software
-        run: sudo apt-get install -y chromium-browser chromium-chromedriver python3-selenium
+
+      - name: Setup ChromeDriver Environment Variables
+        uses: nanasess/setup-chromedriver@v1.0.1
+
       - name: Install all necessary packages
         run: pip install bs4 selenium
+
       - name: Run the scraping script
         run: python scripts/MetisAAVE.py
+
       - name: Commit and push if content changed
         run: |-
           git config user.name "Automated"
