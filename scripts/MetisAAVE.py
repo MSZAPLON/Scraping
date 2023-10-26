@@ -27,6 +27,23 @@ html = driver.page_source
 # take screenshot
 driver.save_screenshot('screenshot.png')
 
+# get the elements
+supplied = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)").text
+totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text
+borrowed = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)").text
+borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text
+apysupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text
+apyborrow = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text
+coll = driver.find_element(By.CSS_SELECTOR, ".MuiAlert-message").text
+
+print(supplied)
+print(totalsupply)
+print(borrowed)
+print(borrowcap)    
+print(apysupply)
+print(apyborrow)
+print(coll)
+
 # parse the page source into BeautifulSoup
 soup = BeautifulSoup(html, 'html.parser')
 
