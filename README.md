@@ -7,7 +7,11 @@ Components to reuse:
 
 github actions
 
-    ubuntu, selenium, python, requirements, commit back to repo
+    ubuntu, 
+    selenium, 
+    python, requirements, 
+    commit back to repo, 
+    GitHub secrets
 
 python
 
@@ -15,6 +19,7 @@ python
     update tracking file
     screenshot for debugging
     telegram bot messaging
+    GitHub secrets 
 
 data
 
