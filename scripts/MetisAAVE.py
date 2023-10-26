@@ -101,5 +101,5 @@ if coll == None:
     if supplied == None:
         sendTelegramNotification("service is down")
     else:
-        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
-sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
+        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
+sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
