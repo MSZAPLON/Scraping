@@ -15,7 +15,7 @@ url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddead
 # create a new Chrome browser instance
 options = Options()
 options.binary_location = '/usr/bin/google-chrome-stable'
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
 
 # navigate to the url
 driver.get(url)
