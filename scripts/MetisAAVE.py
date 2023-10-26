@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 from bs4 import BeautifulSoup
 from datetime import datetime
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 # specify the url
 url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000&marketName=proto_metis_v3"
@@ -15,7 +16,8 @@ url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddead
 # create a new Chrome browser instance
 options = Options()
 options.binary_location = '/usr/bin/google-chrome-stable'
-driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=options)
 
 # navigate to the url
 driver.get(url)
