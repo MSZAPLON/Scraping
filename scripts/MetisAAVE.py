@@ -49,7 +49,7 @@ try:
     element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)"))
     )
-    supplied = element.text
+    supplied = element.text.replace(',', '')
 except Exception:
     supplied = None
    
@@ -57,37 +57,37 @@ except Exception:
 driver.save_screenshot('screenshot.png')
 
 try:
-    price = driver.find_element(By.CSS_SELECTOR, ".MuiTypography-main21").text.replace('\n', '')
+    price = driver.find_element(By.CSS_SELECTOR, ".MuiTypography-main21").text.replace('\n', '').replace(',', '')
 except Exception:
     price = None
    
 try:
-    totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text
+    totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text.replace(',', '')
 except Exception:
     totalsupply = None
 
 try:
-    borrowed = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)").text
+    borrowed = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)").text.replace(',', '')
 except Exception:
     borrowed = None
 
 try:
-    borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text
+    borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text.replace(',', '')
 except Exception:
     borrowcap = None
 
 try:
-    apysupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '')
+    apysupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '')
 except Exception:
     apysupply = None
 
 try:
-    apyborrow = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '')
+    apyborrow = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '')
 except Exception:
     apyborrow = None
 
 try:
-    coll = driver.find_element(By.CSS_SELECTOR, ".MuiAlert-message").text
+    coll = driver.find_element(By.CSS_SELECTOR, ".MuiAlert-message").text.replace(',', '')
 except Exception:
     coll = None
 
