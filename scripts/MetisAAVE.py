@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
+import os
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -17,7 +18,7 @@ from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 def sendTelegramNotification(text):
-   token = "6819722568:AAGf2Jl3QOYXKenllB53jo7IDDIfg9YPvnA"
+   token = os.environ['TELEGRAM_TOKEN']
    chat_id = "1719555198"
    url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
    results = requests.get(url_req)

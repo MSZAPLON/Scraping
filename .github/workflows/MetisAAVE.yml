@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 12 * * *'
+env: 
+  TELEGRAM_TOKEN: $ { { secrets.TELEGRAM_TOKEN }}
 jobs:
   scrape:
     runs-on: ubuntu-latest
