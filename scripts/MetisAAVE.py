@@ -16,9 +16,11 @@ from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.support.wait import WebDriverWait
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-print(os.environ['TELEGRAM_TOKEN'])
+TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
+
+
 def sendTelegramNotification(text):
-   token = os.environ['TELEGRAM_TOKEN']
+   token = TELEGRAM_TOKEN
    chat_id = "1719555198"
    url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
    results = requests.get(url_req)

@@ -6,8 +6,6 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    env: 
-      TELEGRAM_TOKEN: $ { { secrets.TELEGRAM_TOKEN }}
     steps:
       - name: Check out this repo
         uses: actions/checkout@v2
@@ -22,7 +20,7 @@ jobs:
           sudo apt-get install -y chromium-browser chromium-chromedriver python3-selenium
           pip install bs4 selenium webdriver_manager
       - name: Run the scraping script
-        run: python scripts/MetisAAVE.py
+        run: TELEGRAM_TOKEN=$ { { secrets.TELEGRAM_TOKEN }} python scripts/MetisAAVE.py
 
       - name: Commit and push if content changed
         run: |-
