@@ -57,7 +57,7 @@ except Exception:
 driver.save_screenshot('screenshot.png')
 
 try:
-    price = driver.find_element(By.CSS_SELECTOR, ".MuiTypography-main21").text.replace('\n', '').replace(',', '')
+    price = driver.find_element(By.CSS_SELECTOR, "p.MuiTypography-main21[value$='.\\d\\d']").text.replace('\n', '').replace(',', '')
 except Exception:
     price = None
    
