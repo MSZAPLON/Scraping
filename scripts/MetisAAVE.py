@@ -43,6 +43,13 @@ driver.get(url)
 # get the page source
 html = driver.page_source
 
+#convert k to thousand
+def convert_k_to_thousand(s):
+  if 'K' in s:
+    return str(float(s.replace('K', ''))*1000)
+  else:
+    return s
+
 
 # get the elements
 try:
@@ -50,6 +57,7 @@ try:
         EC.presence_of_element_located((By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)"))
     )
     supplied = element.text.replace(',', '')
+    supplied = convert_k_to_thousand(supplied)
 except Exception:
     supplied = None
    
@@ -57,22 +65,25 @@ except Exception:
 driver.save_screenshot('screenshot.png')
 
 try:
-    price = driver.find_element(By.CSS_SELECTOR, ".css-1x4zjhu:nth-child(1)").text.replace('\n', '').replace(',', '')
+    price = driver.find_element(By.CSS_SELECTOR, ".css-1x4zjhu:nth-child(1)").text.replace('\n', '').replace(',', '').replace('$', '')
 except Exception:
     price = None
    
 try:
     totalsupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) .MuiTypography-root:nth-child(3)").text.replace(',', '')
+    totalsupply = convert_k_to_thousand(totalsupply)
 except Exception:
     totalsupply = None
 
 try:
     borrowed = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)").text.replace(',', '')
+    borrowed = convert_k_to_thousand(borrowed)
 except Exception:
     borrowed = None
 
 try:
     borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text.replace(',', '')
+    borrowcap = convert_k_to_thousand(borrowcap)
 except Exception:
     borrowcap = None
 
