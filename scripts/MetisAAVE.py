@@ -87,13 +87,14 @@ except Exception:
 #update supplied
 import requests
 import json
+try:
+   result = requests.get('https://andromeda-explorer.metis.io/api?module=account&action=balance&address=0x7314Ef2CA509490f65F52CC8FC9E0675C66390b8')
+   allonchain = round((int(result.json()['result'])/1000000000000000000), 2)
 
-result = requests.get('https://andromeda-explorer.metis.io/api?module=account&action=balance&address=0x7314Ef2CA509490f65F52CC8FC9E0675C66390b8')
-allonchain = round((int(result.json()['result'])/1000000000000000000), 2)
-
-supplied = float(allonchain) + float(supplied)
-
-
+   supplied = float(allonchain) + float(supplied)
+except Exception:
+   print('didn't get account balance')
+   
 try:
     borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text.replace(',', '')
     borrowcap = convert_k_to_thousand(borrowcap)
