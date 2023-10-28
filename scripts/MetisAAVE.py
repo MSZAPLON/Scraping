@@ -102,12 +102,12 @@ except Exception:
     borrowcap = None
 
 try:
-    apysupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '')
+    apysupply = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '').replace('%', '')
 except Exception:
     apysupply = None
 
 try:
-    apyborrow = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '')
+    apyborrow = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(1) > .MuiBox-root:nth-child(3) > .MuiBox-root > .MuiTypography-root").text.replace('\n', '').replace(',', '').replace('%', '')
 except Exception:
     apyborrow = None
 
