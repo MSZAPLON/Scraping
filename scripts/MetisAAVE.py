@@ -92,6 +92,9 @@ try:
    allonchain = round((int(result.json()['result'])/1000000000000000000), 2)
 
    supplied = float(allonchain) + float(supplied)
+   print(result)
+   print(allonchain)
+   print(supplied)
 except Exception:
    print('didnt get account balance')
    
