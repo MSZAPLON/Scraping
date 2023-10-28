@@ -93,7 +93,7 @@ try:
 
    supplied = float(allonchain) + float(supplied)
 except Exception:
-   print('didn't get account balance')
+   print('didnt get account balance')
    
 try:
     borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text.replace(',', '')
