@@ -56,8 +56,8 @@ try:
     element = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, ".MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root:nth-child(2) > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(1)"))
     )
-    #supplied = element.text.replace(',', '')
-    #supplied = convert_k_to_thousand(supplied)
+    supplied = element.text.replace(',', '')
+    supplied = convert_k_to_thousand(supplied)
 except Exception:
     supplied = None
    
