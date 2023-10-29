@@ -46,9 +46,9 @@ html = driver.page_source
 #convert k to thousand
 def convert_k_to_thousand(s):
   if 'K' in s:
-    return str(int(s.replace('K', ''))*1000)
+    return str(int(float(s.replace('K', '')))*1000)
   else:
-    return s
+    return str(int(float(s)))
 
 
 # get the elements
