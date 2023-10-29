@@ -91,7 +91,7 @@ try:
    result = requests.get('https://andromeda-explorer.metis.io/api?module=account&action=balance&address=0x7314Ef2CA509490f65F52CC8FC9E0675C66390b8')
    allonchain = round((int(result.json()['result'])/1000000000000000000), 2)
 
-   supplied = float(allonchain) + float(borrowed)
+   supplied = int(allonchain) + int(borrowed)
    print(result)
    print(allonchain)
    print(supplied)
