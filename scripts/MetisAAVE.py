@@ -95,8 +95,9 @@ try:
    print(result)
    print(allonchain)
    print(supplied)
-except Exception:
-   print('didnt get account balance')
+except Exception as e:
+   print(f"An exception occurred: {e}")
+   print("didnt get the balance")
    
 try:
     borrowcap = driver.find_element(By.CSS_SELECTOR, ".MuiBox-root:nth-child(1) > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiBox-root > .MuiTypography-root:nth-child(3)").text.replace(',', '')
