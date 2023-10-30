@@ -18,7 +18,6 @@ jobs:
           pip install pandas numpy matplotlib
       - name: Run the visualization script
         run: python scripts/Visualize_MetisAAVE.py
-
       - name: Commit and push if content changed
         run: |-
           git config user.name "Automated"
