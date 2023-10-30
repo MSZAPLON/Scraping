@@ -2,7 +2,7 @@ name: Visualize_MetisAAVE
 on:
   workflow_dispatch:
 jobs:
-  scrape:
+  Visualize_MetisAAVE:
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
@@ -17,7 +17,7 @@ jobs:
         run: |
           pip install pandas numpy matplotlib
       - name: Run the visualization script
-        run: python scripts/Visualize_MetisAAVE.py
+        run: python scripts/visualize_MetisAAVE.py
       - name: Commit and push if content changed
         run: |-
           git config user.name "Automated"
