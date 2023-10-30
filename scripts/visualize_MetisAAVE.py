@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the csv file into a dataframe
-df = pd.read_csv("data.csv")
+df = pd.read_csv("data/MetisAAVE.csv")
 
 # Convert the time column to datetime format
 df["time"] = pd.to_datetime(df["time"])
