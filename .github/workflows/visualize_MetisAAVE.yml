@@ -17,7 +17,7 @@ jobs:
         run: |
           pip install pandas numpy matplotlib
       - name: Run the visualization script
-        run: TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} python scripts/Visualize_MetisAAVE.py
+        run: TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} python scripts/visualize_MetisAAVE.py
 
       - name: Commit and push if content changed
         run: |-
