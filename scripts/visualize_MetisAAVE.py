@@ -7,7 +7,7 @@ import numpy as np
 df = pd.read_csv("data.csv")
 
 # Convert the time column to datetime format
-df["time"] = pd.to_datetime(df["time"])
+df["time"] = pd.to_datetime(df["time"], format="%d/%m/%Y %H:%M:%S")
 
 # Group the data by date and calculate the mean values
 df = df.groupby(df["time"].dt.date).mean()
