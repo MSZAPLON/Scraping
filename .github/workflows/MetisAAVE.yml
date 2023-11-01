@@ -2,9 +2,7 @@ name: MetisAAVE
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 0-7 * * *' # every 10 minutes from 0 to 7 AM
-    - cron: '10-50/10 8 * * *' # every 10 minutes from 8:10 to 8:50 AM
-    - cron: '*/10 9-23 * * *' # every 10 minutes from 9 to 23 PM
+    - cron: '09-50/10 * * * *' 
 jobs:
   scrape:
     runs-on: ubuntu-latest
