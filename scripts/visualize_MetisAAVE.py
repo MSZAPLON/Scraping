@@ -80,6 +80,6 @@ fig.set_facecolor("white")
 axc.spines['right'].set_position(('outward', 60))
 
 # Save the plot as a PNG file with 300 dpi
-fig.savefig("plot.png", dpi=300, bbox_inches="tight")
+fig.savefig("data/plot.png", dpi=300, bbox_inches="tight")
 
 #plt.show()
