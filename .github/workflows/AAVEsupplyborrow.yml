@@ -16,7 +16,7 @@ jobs:
 
       - name: Install all necessary packages
         run: |
-          pip install web3 aave-python aave
+          pip install web3==5.25.0 aave-python aave
       - name: Run the AAVEsupplyborrow script
         run: WALLET_PRIVATEKEY=${{ secrets.WALLET_PRIVATEKEY }} WALLET_PUBLIC=${{ secrets.WALLET_PUBLIC }} python scripts/AAVEsupplyborrow.py
       - name: Commit and push if content changed
