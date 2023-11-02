@@ -90,7 +90,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the csv file into a dataframe
-df = pd.read_csv("data.csv")
+df = pd.read_csv("data/MetisAAVE.csv")
 
 # Convert the time column to datetime format
 df["time"] = pd.to_datetime(df["time"], format="%d/%m/%Y %H:%M:%S")
@@ -166,6 +166,6 @@ fig.set_facecolor("white")
 axc.spines['right'].set_position(('outward', 60))
 
 # Save the plot as a PNG file with 300 dpi
-fig.savefig("plot.png", dpi=300)
+fig.savefig("data/plot.png", dpi=300)
 
 #plt.show()
