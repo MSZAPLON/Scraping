@@ -136,21 +136,23 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 #compare the values with the last input
 import csv
 
-with open('data/MetisAAVE.csv', 'r') as f:
-    reader = csv.reader(f)
-    header = next(reader)  # skip header
-    last_row = None
-    for row in reader:
-        last_row = row
-    if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
-        with open("data/MetisAAVE.csv", "a") as text_file:
-            text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
-    else:
-        print('The last row matches the variables in your code.')
-
 if coll == None:
     if supplied == None:
         sendTelegramNotification("service is down")
     else:
         sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
+else:
+    with open('data/MetisAAVE.csv', 'r') as f:
+        reader = csv.reader(f)
+        header = next(reader)  # skip header
+        last_row = None
+        for row in reader:
+            last_row = row
+        if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
+            with open("data/MetisAAVE.csv", "a") as text_file:
+                text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
+    else:
+        print('The last row matches the variables in your code.')
+
+
 
