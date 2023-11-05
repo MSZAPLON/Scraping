@@ -135,14 +135,14 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 #compare the values with the last input
 import csv
-track = true
+track = True
 if coll == None:
     if supplied == None:
         sendTelegramNotification("service is down")
-        track = false
+        track = False
     else:
         sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
-if track == true:
+if track == True:
     with open('data/MetisAAVE.csv', 'r') as f:
         reader = csv.reader(f)
         header = next(reader)  # skip header
