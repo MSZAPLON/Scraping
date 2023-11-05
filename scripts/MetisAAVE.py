@@ -151,8 +151,8 @@ else:
         if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
             with open("data/MetisAAVE.csv", "a") as text_file:
                 text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
-    else:
-        print('The last row matches the variables in your code.')
+        else:
+            print('The last row matches the variables in your code.')
 
 
 
