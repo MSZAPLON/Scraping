@@ -10,7 +10,7 @@ df = pd.read_csv("data/MetisAAVE.csv")
 df["time"] = pd.to_datetime(df["time"], format="%d/%m/%Y %H:%M:%S")
 
 # Group the data by date and calculate the mean values
-df = df.groupby(df["time"].dt.date).mean()
+df = df.groupby(df["time"].dt.date).max()
 
 # Create a range of values for the x-axis
 x = np.arange(len(df))
