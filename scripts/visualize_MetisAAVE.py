@@ -55,7 +55,7 @@ axc.set_yscale("linear")
 
 # Set the y-ticks for all axes with 5 values each
 ymin1, ymax1 = 0, max(df["totalsupply"])
-ymin2, ymax2 = 0, 1.2 * max(df["price"])
+ymin2, ymax2 = 0.8 * min(df["price"]), 1.2 * max(df["price"])
 ymin3, ymax3 = 0, max(max(df["apysupply"]), max(df["apyborrow"]))
 
 ax.set_yticks(np.linspace(ymin1, ymax1, 10))
