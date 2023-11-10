@@ -18,13 +18,12 @@ from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 
-
-def sendTelegramNotification(text):
-   token = TELEGRAM_TOKEN
-   chat_id = "1719555198"
-   url_req = "https://api.telegram.org/bot" + token + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
-   results = requests.get(url_req)
-   print(results.json())
+ls_IDS = ["1719555198", "5571930248"]
+def sendTelegramNotification(text,ls):
+   for chat_id in ls:
+      url_req = "https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
+      results = requests.get(url_req)
+      print(results.json())
 
 # specify the url
 url = "https://app.aave.com/reserve-overview/?underlyingAsset=0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000&marketName=proto_metis_v3"
@@ -138,10 +137,10 @@ import csv
 track = True
 if coll == None:
     if supplied == None:
-        sendTelegramNotification("service is down")
+        sendTelegramNotification("service is down",ls_IDS)
         track = False
     else:
-        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow))
+        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow),ls_IDS)
 if track == True:
     with open('data/MetisAAVE.csv', 'r') as f:
         reader = csv.reader(f)
@@ -155,5 +154,6 @@ if track == True:
         else:
             print('The last row matches the variables in your code.')
 
+sendTelegramNotification("test",ls_IDS)
 
 
