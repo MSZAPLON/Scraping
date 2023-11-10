@@ -154,6 +154,5 @@ if track == True:
         else:
             print('The last row matches the variables in your code.')
 
-sendTelegramNotification("test",ls_IDS)
 
 
