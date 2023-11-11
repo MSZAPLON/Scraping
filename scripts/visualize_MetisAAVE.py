@@ -81,5 +81,8 @@ axc.spines['right'].set_position(('outward', 60))
 
 # Save the plot as a PNG file with 300 dpi
 fig.savefig("data/plot.png", dpi=300, bbox_inches="tight")
+now = datetime.now().strftime("%Y%m%d_%H%M")
+fig.savefig("data/Graph/plot"+now+".png", dpi=300, bbox_inches="tight")
+
 
 #plt.show()
