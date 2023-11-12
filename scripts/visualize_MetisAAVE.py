@@ -12,6 +12,9 @@ df = pd.read_csv("data/MetisAAVE.csv")
 df["time"] = pd.to_datetime(df["time"], format="%d/%m/%Y %H:%M:%S")
 
 # Group the data by date and calculate the mean values
+
+dfmin = df.groupby(df["time"].dt.date).min()
+dfavg = df.groupby(df["time"].dt.date).apply(lambda x: x.mean(numeric_only=True))
 df = df.groupby(df["time"].dt.date).max()
 
 # Create a range of values for the x-axis
@@ -33,7 +36,10 @@ b3 = ax.bar(x + 0.15, df["borrowcap"], width=0.3, color="white", edgecolor="red"
 b4 = ax.bar(x + 0.15, df["borrowed"], width=0.3, color="red", label="borrowed", alpha=0.8)
 
 # Plot the price on the secondary axis as a line
-l1 = axb.plot(x, df["price"], color="black", linewidth=3, marker="o", label="price")
+# l1 = axb.plot(x, df["price"], color="black", linewidth=3, marker="o", label="price")
+axb.fill_between(x, dfmin["price"], df["price"], color="gray", alpha=.5, linewidth=0)
+l1 = axb.plot(x, dfavg["price"], color="black", linewidth=3, marker="o", label="price")
+
 
 # Plot the apyborrow and apysupply on the third axis as lines
 l2 = axc.plot(x, df["apysupply"], color="lightgreen", linewidth=2, marker="o", label="supply apy")
@@ -87,4 +93,4 @@ now = datetime.now().strftime("%Y%m%d_%H%M")
 fig.savefig("data/Graph/plot"+now+".png", dpi=300, bbox_inches="tight")
 
 
-#plt.show()
+# plt.show()
