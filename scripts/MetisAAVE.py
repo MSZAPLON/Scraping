@@ -18,7 +18,9 @@ from selenium.webdriver.support import expected_conditions as EC
 # from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 
-ls_IDS = ["1719555198", "5571930248"]
+
+lserror_IDS = ["5571930248"]
+ls_IDS = ["1719555198", "5571930248", "5933851317"]
 def sendTelegramNotification(text,ls):
    for chat_id in ls:
       url_req = "https://api.telegram.org/bot" + TELEGRAM_TOKEN + "/sendMessage" + "?chat_id=" + chat_id + "&text=" + text 
@@ -137,7 +139,7 @@ import csv
 track = True
 if coll == None:
     if supplied == None:
-        sendTelegramNotification("service is down",ls_IDS)
+        sendTelegramNotification("service is down",lserror_IDS)
         track = False
     else:
         sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow),ls_IDS)
