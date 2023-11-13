@@ -50,8 +50,8 @@ plt.xticks(np.linspace(0, len(df) - 1, 10), df.index[np.linspace(0, len(df) - 1,
 
 # Set the y-axis labels and colors for all axes
 ax.set_ylabel("supply/borrow amount (in Metis)", color="black", ha='right')
-axb.set_ylabel("price", color="black", ha='left')
-axc.set_ylabel("apy", color="black", ha='left')
+axb.set_ylabel("price ($)", color="black", ha='left')
+axc.set_ylabel("apys (%)", color="black", ha='left')
 ax.tick_params(axis='y', labelcolor='black')
 axb.tick_params(axis='y', labelcolor='black')
 axc.tick_params(axis='y', labelcolor='black')
