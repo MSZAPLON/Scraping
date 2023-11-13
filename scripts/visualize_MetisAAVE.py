@@ -49,7 +49,7 @@ l3 = axc.plot(x, df["apyborrow"], color="red", linewidth=2, marker="o", label="b
 plt.xticks(np.linspace(0, len(df) - 1, 10), df.index[np.linspace(0, len(df) - 1, 10).astype(int)])
 
 # Set the y-axis labels and colors for all axes
-ax.set_ylabel("amount (in Metis)", color="black", ha='right')
+ax.set_ylabel("supply/borrow amount (in Metis)", color="black", ha='right')
 axb.set_ylabel("price", color="black", ha='left')
 axc.set_ylabel("apy", color="black", ha='left')
 ax.tick_params(axis='y', labelcolor='black')
