@@ -13986,3 +13986,4 @@ time,coll,supplied,totalsupply,apysupply,borrowed,borrowcap,apyborrow,price
 12/07/2024 15:26:23,Asset cannot be used as collateral.,227122,600000,0.07,16315,32000,1.12,40.02
 12/07/2024 16:30:11,Asset cannot be used as collateral.,227140,600000,0.07,16315,32000,1.12,40.25
 12/07/2024 16:43:33,Asset cannot be used as collateral.,226450,600000,0.06,15625,32000,1.08,40.25
+12/07/2024 16:56:39,Asset cannot be used as collateral.,227140,600000,0.06,15625,32000,1.08,40.04
