@@ -118,10 +118,10 @@ try:
 except Exception:
     apyborrow = None
 
-try:
-    coll = driver.find_element(By.CSS_SELECTOR, ".MuiAlert-message").text.replace(',', '')
-except Exception:
-    coll = None
+# try:
+#     coll = driver.find_element(By.CSS_SELECTOR, ".MuiAlert-message").text.replace(',', '')
+# except Exception:
+#     coll = None
 
 
 # close the browser window
@@ -138,12 +138,12 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 #compare the values with the last input
 import csv
 track = True
-if coll == None:
-    if supplied == None:
-        sendTelegramNotification("service is down",lserror_IDS)
-        track = False
-    else:
-        sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE without isolation mode!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow),ls_IDS)
+# if coll == None:
+#     if supplied == None:
+#         sendTelegramNotification("service is down",lserror_IDS)
+#         track = False
+#     else:
+#         sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE without isolation mode!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow),ls_IDS)
 if track == True:
     with open('data/MetisAAVE.csv', 'r') as f:
         reader = csv.reader(f)
@@ -151,9 +151,9 @@ if track == True:
         last_row = None
         for row in reader:
             last_row = row
-        if last_row[1:] != [str(coll), str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
+        if last_row[1:] != ["YES", str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
             with open("data/MetisAAVE.csv", "a") as text_file:
-                text_file.write(str(dt_string) + "," + str(coll) + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
+                text_file.write(str(dt_string) + "," + "YES" + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
         else:
             print('The last row matches the variables in your code.')
 
