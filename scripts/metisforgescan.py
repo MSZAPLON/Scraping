@@ -25,7 +25,7 @@ def sendTelegramNotification(text, ls):
 
 # specify the url
 url = "https://metisforge.io/"
-search_text = "CrazyPug"
+search_texts = ["CrazyPug", "MEMAI", "MEMETHOS"]
 
 # create a new Chrome browser instance
 options = Options()
@@ -38,24 +38,24 @@ driver = webdriver.Chrome(service=service, options=options)
 # navigate to the url
 driver.get(url)
 
-# Check for the element with specific text
+# Check for the elements with specific texts
 try:
     elements = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "h2.MuiTypography-root.MuiTypography-h2.mui-20q20i"))
     )
-    element_text = None
+    found_texts = []
     for element in elements:
-        if element.text == search_text:
-            element_text = element.text
-            break
+        if element.text in search_texts:
+            found_texts.append(element.text)
 except Exception:
-    element_text = None
+    found_texts = []
 
 # close the browser window
 driver.quit()
 
-# Send Telegram notification based on the presence of the element
-if element_text == search_text:
-    sendTelegramNotification(f"{search_text} is now available on the website.", ls_IDS)
-else:
-    sendTelegramNotification(f"{search_text} is NOT available on the website.", lserror_IDS)
+# Send Telegram notification based on the presence of the elements
+for text in found_texts:
+    sendTelegramNotification(f"{text} is now available on the website.", ls_IDS)
+
+if not found_texts:
+    sendTelegramNotification("None of the specified names are available on the website.", lserror_IDS)
