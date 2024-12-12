@@ -20,7 +20,7 @@ TELEGRAM_TOKEN = os.environ['TELEGRAM_TOKEN']
 
 
 lserror_IDS = ["5571930248"]
-# ls_IDS = ["1719555198", "5571930248", "5933851317"]
+# ls_IDS = ["5571930248"]
 ls_IDS = ["5571930248"]
 def sendTelegramNotification(text,ls):
    for chat_id in ls:
