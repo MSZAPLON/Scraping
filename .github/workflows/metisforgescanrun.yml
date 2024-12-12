@@ -1,8 +1,7 @@
 name: metisforgescan
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/20 * * * *' 
+  
 jobs:
   scrape:
     runs-on: ubuntu-latest
