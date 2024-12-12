@@ -19,8 +19,8 @@ jobs:
         run: |
           sudo apt-get install -y chromium-browser chromium-chromedriver python3-selenium
           pip install bs4 selenium webdriver_manager
-      - name: Run the scraping script
-        run: TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} python scripts/MetisAAVE.py
+      - name: Run the scraping script metisforge_scan
+        run: TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }} python scripts/metisforgescan.py
 
       - name: Commit and push if content changed
         run: |-
