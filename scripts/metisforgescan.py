@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import requests
 import os
+import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -38,7 +39,24 @@ driver = webdriver.Chrome(service=service, options=options)
 # navigate to the url
 driver.get(url)
 
-# Check for the elements with specific texts
+# Click on the button with text "New" first
+try:
+    buttons = WebDriverWait(driver, 10).until(
+        EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.pixel-box--wrapper.primary.outlined.mui-10i69e8 > div.pixel-box"))
+    )
+    for button in buttons:
+        if button.text == "New":
+            button.click()
+            break
+except Exception as e:
+    print(f"An exception occurred while trying to click the button: {e}")
+
+# Scroll down to the bottom with timers, scroll for at least 5 times
+for _ in range(5):
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    time.sleep(2)  # wait for 2 seconds before the next scroll
+
+# Check for the elements with specific texts without clicking anything further
 try:
     elements = WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, "h2.MuiTypography-root.MuiTypography-h2.mui-20q20i"))
@@ -58,4 +76,4 @@ for text in found_texts:
     sendTelegramNotification(f"{text} is now available on the website.", ls_IDS)
 
 if not found_texts:
-    sendTelegramNotification("None of the specified names are available on the website.", lserror_IDS)
+    print("None of the specified names are available on the website.", lserror_IDS)
