@@ -27,7 +27,7 @@ def sendTelegramNotification(text, ls):
 def run_script():
     # specify the url
     url = "https://metisforge.io/"
-    search_texts = ["CrazyPug", "MEMAI", "MEMETHOS", "gMETIS"]
+    search_texts = ["MEMAI", "MEMETHOS", "gMETIS"]
 
     # create a new Chrome browser instance
     options = Options()
