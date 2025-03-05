@@ -1,8 +1,8 @@
 name: Visualize_MetisAAVE
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 * * * *' # 
+  # schedule:
+  #   - cron: '0 * * * *' # 
 jobs:
   Visualize_MetisAAVE:
     runs-on: ubuntu-latest
