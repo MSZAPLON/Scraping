@@ -1,8 +1,8 @@
 name: MetisAAVE
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '09-50/10 * * * *' 
+  # schedule:
+  #   - cron: '09-50/10 * * * *' 
 jobs:
   scrape:
     runs-on: ubuntu-latest
