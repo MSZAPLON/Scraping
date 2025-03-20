@@ -144,6 +144,7 @@ track = True
 #         track = False
 #     else:
 #         sendTelegramNotification("METIS CAN BE USED AS COLLATERAL ON AAVE without isolation mode!!!" + '\n' + "TOTAL SUPPLY: " + str(totalsupply) + '\n' + 'SUPPLIED: ' + str(supplied) + '\n' + "TOTAL BORROWED: " + str(borrowcap) + '\n' + "TOTAL BORROWED: " + str(borrowed) + '\n' + "SUPPLY APY: " + str(apysupply) + '\n' + "BORROW APY: " + str(apyborrow),ls_IDS)
+
 if track == True:
     with open('data/MetisAAVE.csv', 'r') as f:
         reader = csv.reader(f)
@@ -151,11 +152,38 @@ if track == True:
         last_row = None
         for row in reader:
             last_row = row
+
+        # Debug: Log the comparison for verification
+        print("Last row values:", last_row[1:])
+        print("Current values:", ["YES", str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)])
+
+        # Detailed element-wise comparison
+        for i, (last, current) in enumerate(zip(last_row[1:], ["YES", str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)])):
+            if last != current:
+                print(f"Mismatch at index {i}: last({last}), current({current})")
+
+        # Conditional check for updating the CSV
         if last_row[1:] != ["YES", str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
             with open("data/MetisAAVE.csv", "a") as text_file:
-                text_file.write(str(dt_string) + "," + "YES" + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
+                text_file.write(str(dt_string) + "," + "YES" + "," + str(supplied) + "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
         else:
             print('The last row matches the variables in your code.')
+
+
+
+# if track == True:
+#     with open('data/MetisAAVE.csv', 'r') as f:
+#         reader = csv.reader(f)
+#         header = next(reader)  # skip header
+#         last_row = None
+#         for row in reader:
+#             last_row = row
+           
+#         if last_row[1:] != ["YES", str(supplied), str(totalsupply), str(apysupply), str(borrowed), str(borrowcap), str(apyborrow), str(price)]:
+#             with open("data/MetisAAVE.csv", "a") as text_file:
+#                 text_file.write(str(dt_string) + "," + "YES" + "," + str(supplied) +  "," + str(totalsupply) + "," + str(apysupply) + "," + str(borrowed) + "," + str(borrowcap) + "," + str(apyborrow) + "," + str(price) + '\n')
+#         else:
+#             print('The last row matches the variables in your code.')
 
 
 
